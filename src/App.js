@@ -4,6 +4,7 @@ import JournalsList from "./JournalsList";
 import Search from "./Search";
 import NavBar from "./NavBar";
 import Jumbotron from "./Jumbotron";
+import Footer from "./Footer";
 
 import "./App.css";
 // Bootstrap CSS
@@ -14,7 +15,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 function App() {
   const [journalsList, setJournalsList] = useState([]);
 
-  const addJournalHandler = (uImageURL, uCountry, uJournal) => {
+  const addJournalHandler = (uImageURL, uCountry, uJournal, uDate) => {
     setJournalsList((prevJournalsList) => {
       return [
         ...prevJournalsList,
@@ -22,6 +23,7 @@ function App() {
           imageURL: uImageURL,
           country: uCountry,
           journal: uJournal,
+          date: uDate,
           id: Math.random().toString(),
         },
       ];
@@ -52,6 +54,7 @@ function App() {
       <Search />
       <AddJournal onAddJournal={addJournalHandler} />
       <JournalsList journals={journalsList} handleDelete={handleDelete} />
+      <Footer />
     </div>
   );
 }

@@ -8,6 +8,7 @@ export default function AddJournal(props) {
   const [enteredJournal, setEnteredJournal] = useState("");
   const [enteredCountry, setEnteredCountry] = useState("");
   const [enteredImageURL, setEnteredImageURL] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
   const [show, setShow] = useState(false);
 
   const handleShow = () => {
@@ -20,7 +21,12 @@ export default function AddJournal(props) {
 
   const addJournalHandler = (event) => {
     setShow(false);
-    props.onAddJournal(enteredImageURL, enteredCountry, enteredJournal);
+    props.onAddJournal(
+      enteredImageURL,
+      enteredCountry,
+      enteredJournal,
+      enteredDate
+    );
     setEnteredJournal("");
     setEnteredCountry("");
     setEnteredImageURL("");
@@ -36,6 +42,10 @@ export default function AddJournal(props) {
 
   const imageURLChangeHandler = (event) => {
     setEnteredImageURL(event.target.value);
+  };
+
+  const dateChangeHandler = (event) => {
+    setEnteredDate(event.target.value);
   };
 
   return (
@@ -75,6 +85,15 @@ export default function AddJournal(props) {
                 onChange={journalChangeHandler}
                 value={enteredJournal}
                 rows={3}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="date">
+              <Form.Label>Date</Form.Label>
+              <Form.Control
+                type="date"
+                onChange={dateChangeHandler}
+                value={enteredDate}
+                autoFocus
               />
             </Form.Group>
           </Form>
