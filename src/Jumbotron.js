@@ -1,40 +1,38 @@
 import Carousel from "react-bootstrap/Carousel";
+import snow from "./snow.jpg";
+import mountain from "./mountain.jpg";
+import house from "./house.jpg";
 
 export default function Jumbotron() {
   return (
-    <Carousel>
+    <Carousel fade>
       <Carousel.Item interval={1000}>
-        <img
-          className="d-block w-100"
-          src="https://mobirise.com/bootstrap-gallery/assets1/images/photo-1463946377180-f5185c2783e5-1351x900.jpg"
-          alt="First slide"
-        />
+        <img className="d-block w-100" src={snow} alt="First slide" />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>A walk in the snow</h3>
+          <p>
+            why focus on the negative when we can throw on our snow boots and go
+            out to enjoy the beautiful snowy weather.
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={1000}>
-        <img
-          className="d-block w-100"
-          src="https://mobirise.com/bootstrap-gallery/assets1/images/photo-1472152083436-a6eede6efad9-1349x901.jpg"
-          alt="Second slide"
-        />
+        <img className="d-block w-100" src={mountain} alt="Second slide" />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>The mountains are calling and I must go</h3>
+          <p>
+            I see every person as a mountain of sorts; we can see how they look
+            from afar, but will never know them until we explore.
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://mobirise.com/bootstrap-gallery/assets1/images/photo-1438159510492-d44b489bd1b6-1350x900.jpg"
-          alt="Third slide"
-        />
+        <img className="d-block w-100" src={house} alt="Third slide" />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>To live in a gingerbread house</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            A home is the physical embodiment of the people who inhabit it, so
+            it's no wonder that it's such a special place for so many.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
