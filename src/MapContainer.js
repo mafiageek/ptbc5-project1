@@ -1,21 +1,23 @@
-import {
-  Map,
-  InfoWindow,
-  Marker,
-  GoogleApiWrapper,
-} from "@react-google-maps/api";
+import React from "react";
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
-function MapContainer(props) {
+const containerStyle = {
+  width: "400px",
+  height: "400px",
+};
+
+const center = {
+  lat: -3.745,
+  lng: -38.523,
+};
+
+export default function MapContainer() {
   return (
-    <div className="map-container">
-      <Map
-        google={props.google}
-        zoom={14}
-        initialCenter={{ lat: 51.501364, lng: -0.14189 }}
-      ></Map>
-    </div>
+    <LoadScript googleMapsApiKey={process.env.api_key}>
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+        {/* Child components, such as markers, info windows, etc. */}
+        <></>
+      </GoogleMap>
+    </LoadScript>
   );
 }
-export default GoogleApiWrapper({
-  apiKey: process.env.api_key,
-})(MapContainer);

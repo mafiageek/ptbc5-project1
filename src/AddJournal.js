@@ -97,6 +97,7 @@ export default function AddJournal(props) {
                 autoFocus
               />
             </Form.Group>
+            <MapContainer />
           </Form>
         </Modal.Body>
         <Modal.Footer>
@@ -107,7 +108,6 @@ export default function AddJournal(props) {
             Save Changes
           </Button>
         </Modal.Footer>
-        <MapContainer />
       </Modal>
     </div>
   );
