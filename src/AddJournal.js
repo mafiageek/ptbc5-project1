@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import MapContainer from "./MapContainer";
 import "./AddJournal.css";
 
 export default function AddJournal(props) {
@@ -106,6 +107,7 @@ export default function AddJournal(props) {
             Save Changes
           </Button>
         </Modal.Footer>
+        <MapContainer />
       </Modal>
     </div>
   );
