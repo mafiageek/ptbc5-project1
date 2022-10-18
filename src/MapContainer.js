@@ -1,22 +1,38 @@
 import React from "react";
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
-const containerStyle = {
-  width: "400px",
-  height: "400px",
-};
+export default function MapContainer(props) {
+  const [currentPosition, setCurrentPosition] = React.useState({
+    lat: 41.3851,
+    lng: 2.1734,
+  });
 
-const center = {
-  lat: -3.745,
-  lng: -38.523,
-};
+  const onMarkerDragEnd = (e) => {
+    const lat = e.latLng.lat();
+    const lng = e.latLng.lng();
+    setCurrentPosition({ lat, lng });
+    console.log(currentPosition);
+  };
 
-export default function MapContainer() {
+  const mapStyles = {
+    height: "30vh",
+    width: "100%",
+  };
+
   return (
     <LoadScript googleMapsApiKey={process.env.api_key}>
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-        {/* Child components, such as markers, info windows, etc. */}
-        <></>
+      <GoogleMap
+        mapContainerStyle={mapStyles}
+        zoom={13}
+        center={currentPosition}
+      >
+        {currentPosition.lat ? (
+          <Marker
+            position={currentPosition}
+            onDragEnd={(e) => onMarkerDragEnd(e)}
+            draggable={true}
+          />
+        ) : null}
       </GoogleMap>
     </LoadScript>
   );
