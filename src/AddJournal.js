@@ -12,6 +12,18 @@ export default function AddJournal(props) {
   const [enteredDate, setEnteredDate] = useState("");
   const [show, setShow] = useState(false);
 
+  const [currentPosition, setCurrentPosition] = useState({
+    lat: 41.3851,
+    lng: 2.1734,
+  });
+
+  const onMarkerDragEnd = (e) => {
+    const lat = parseFloat(e.latLng.lat());
+    const lng = parseFloat(e.latLng.lng());
+    setCurrentPosition({ lat, lng });
+    console.log(currentPosition);
+  };
+
   const handleShow = () => {
     setShow(true);
   };
@@ -26,11 +38,18 @@ export default function AddJournal(props) {
       enteredImageURL,
       enteredCountry,
       enteredJournal,
-      enteredDate
+      enteredDate,
+      parseFloat(currentPosition.lat),
+      parseFloat(currentPosition.lng)
     );
     setEnteredJournal("");
     setEnteredCountry("");
     setEnteredImageURL("");
+    setEnteredDate("");
+    setCurrentPosition({
+      lat: "",
+      lng: "",
+    });
   };
 
   const journalChangeHandler = (event) => {
@@ -97,7 +116,10 @@ export default function AddJournal(props) {
                 autoFocus
               />
             </Form.Group>
-            <MapContainer />
+            <MapContainer
+              onMarkerDragEnd={onMarkerDragEnd}
+              currentPosition={currentPosition}
+            />
           </Form>
         </Modal.Body>
         <Modal.Footer>

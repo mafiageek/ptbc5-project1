@@ -15,7 +15,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 function App() {
   const [journalsList, setJournalsList] = useState([]);
 
-  const addJournalHandler = (uImageURL, uCountry, uJournal, uDate) => {
+  const addJournalHandler = (
+    uImageURL,
+    uCountry,
+    uJournal,
+    uDate,
+    uLat,
+    uLng
+  ) => {
     setJournalsList((prevJournalsList) => {
       return [
         ...prevJournalsList,
@@ -24,6 +31,10 @@ function App() {
           country: uCountry,
           journal: uJournal,
           date: uDate,
+          position: {
+            lat: uLat,
+            lng: uLng,
+          },
           id: Math.random().toString(),
         },
       ];
@@ -39,6 +50,8 @@ function App() {
   //     }
   //   });
   // };
+
+  console.log(journalsList);
 
   const handleDelete = (event, journalId) => {
     event.stopPropagation();
