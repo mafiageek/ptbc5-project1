@@ -3,12 +3,14 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
-export default function Search() {
+export default function Search(props) {
   return (
     <>
       <InputGroup className="mb-3 search">
         <Form.Control
-          placeholder="Search"
+          placeholder="Enter Country"
+          onChange={(event) => props.handleSearch(event)}
+          value={props.query}
           aria-label="Search"
           aria-describedby="basic-addon2"
         />

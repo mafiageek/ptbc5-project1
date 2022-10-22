@@ -14,6 +14,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 function App() {
   const [journalsList, setJournalsList] = useState([]);
+  const [query, setQuery] = useState("");
+
+  const handleSearch = (event) => {
+    setQuery(event.target.value);
+    console.log("query", query);
+  };
 
   const addJournalHandler = (
     uImageURL,
@@ -64,7 +70,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Jumbotron />
-      <Search />
+      <Search handleSearch={handleSearch} query={query} />
       <AddJournal onAddJournal={addJournalHandler} />
       <JournalsList journals={journalsList} handleDelete={handleDelete} />
       <Footer />

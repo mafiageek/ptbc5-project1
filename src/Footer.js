@@ -7,13 +7,13 @@ export default function Footer() {
         <div>
           <p>Contact</p>
           <div>
-            <i class="fa fa-home me-4"></i>
+            <i className="fa fa-home me-4"></i>
             <span>Singapore 5566</span>
           </div>
           <i className="fa fa-envelope me-4"></i>
           <span>travelant@dream.net</span>
           <div>
-            <i class="fa fa-phone me-4"></i>
+            <i className="fa fa-phone me-4"></i>
             <span>+65 1234567</span>
           </div>
         </div>

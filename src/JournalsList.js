@@ -11,10 +11,21 @@ export default function JournalsList(props) {
     lat: 41.3851,
     lng: 2.1734,
   };
+
+  const filteredResult = props.journals.filter((post) => {
+    if (!props.query) {
+      return post;
+    } else if (post.country.toLowerCase().includes(props.query.toLowerCase())) {
+      return post;
+    }
+
+    return post;
+  });
+
   return (
     <div className="container">
       <div className="row">
-        {props.journals.map((journal) => (
+        {filteredResult.map((journal) => (
           <div key={journal.id} className="cards col-sm-6 col-md-4">
             <Card>
               {console.log("Card", journal.position)}
