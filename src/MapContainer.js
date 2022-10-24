@@ -25,7 +25,7 @@ export default function MapContainer(props) {
   };
 
   return (
-    <LoadScript googleMapsApiKey={process.env.api_key}>
+    <LoadScript googleMapsApiKey={process.env.React_App_api_key}>
       <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={center}>
         {props.currentPosition.lat ? (
           <Marker
