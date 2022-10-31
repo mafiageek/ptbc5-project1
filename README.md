@@ -1,3 +1,5 @@
+<!-- We would want two things in the README. an installation instruction on how to clone and install your app and how to run it step by step. We also would want to add a description about your application here so the user would know what this codebase is even about -->
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
