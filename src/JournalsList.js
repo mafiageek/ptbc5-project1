@@ -13,6 +13,8 @@ export default function JournalsList(props) {
   };
 
   const filteredResult = props.journals.filter((post) => {
+    // these if statements don't make much sense as we always return post. You need to give a filter condition.
+    // return post.country.toLowerCase().includes(props.query.toLowerCase()) for example
     if (!props.query) {
       return post;
     } else if (post.country.toLowerCase().includes(props.query.toLowerCase())) {
@@ -28,6 +30,7 @@ export default function JournalsList(props) {
         {filteredResult.map((journal) => (
           <div key={journal.id} className="cards col-sm-6 col-md-4">
             <Card>
+              {/* let's remove console.logs from production code */}
               {console.log("Card", journal.position)}
               <Card.Img src={journal.imageURL} variant="top" />
               <GoogleMap
@@ -35,6 +38,7 @@ export default function JournalsList(props) {
                 mapContainerStyle={mapStyles}
                 center={center}
               >
+                {/* journal.position.lat && <Marker position={journal.position} /> */}
                 {journal.position.lat ? (
                   <Marker position={journal.position} />
                 ) : null}

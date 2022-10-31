@@ -7,6 +7,7 @@ export default function Jumbotron() {
   return (
     <Carousel fade>
       <Carousel.Item interval={1000}>
+        {/* Since this img tag gets repeated, we might want to create a component for it to be reusable. The same could go for the whole Carousel.Item actually */}
         <img className="d-block w-100" src={snow} alt="First slide" />
         <Carousel.Caption>
           <h3>A walk in the snow</h3>

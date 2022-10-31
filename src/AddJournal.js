@@ -34,6 +34,7 @@ export default function AddJournal(props) {
 
   const addJournalHandler = (event) => {
     setShow(false);
+    // if you would only have an object for storing state and updating the different properties as needed, you could just pass one object to the function and wouldn't need to type so much and could work a bit more dynamically. You would also reduce the amount of state updates by a lot.
     props.onAddJournal(
       enteredImageURL,
       enteredCountry,
@@ -51,6 +52,12 @@ export default function AddJournal(props) {
       lng: "",
     });
   };
+
+  // like this you could have a dynamic change handler, that updates the field depending on the input name attribute
+  const changeHandler = ({ target }) => {
+    const { name, value } = target;
+    setJournal({ [name]: value })
+  }
 
   const journalChangeHandler = (event) => {
     setEnteredJournal(event.target.value);
@@ -79,6 +86,24 @@ export default function AddJournal(props) {
         </Modal.Header>
         <Modal.Body>
           <Form>
+            {/* The Form.Group is repetitive. We could create an array of objects containing the different data and run a map to create this code. We could also create a FormGroup component that you could reuse to render this stuff.
+            <FormGroup controlId={...} label="abdbas" value={...} autofocus={true} />
+            <FormGroup controlId={...} label="abdbas" value={...} autofocus={false} />
+            <FormGroup controlId={...} label="abdbas" value={...} autofocus={true} as="" rows={1} />
+
+            in your FormGroup component you could just pass all props but controlId to the Form.Control
+
+            const FormGroup = ({controlId, label, ...props}) => {
+              return (
+                <Form.Group className="mb-3" controlId={controlId}>
+                  <Form.Label>{label}</Form.Label>
+                  <Form.Control ...props />
+                </Form.Group>
+              )
+            }
+
+
+            */}
             <Form.Group className="mb-3" controlId="image">
               <Form.Label>Image URL</Form.Label>
               <Form.Control
